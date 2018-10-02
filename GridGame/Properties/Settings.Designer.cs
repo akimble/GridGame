@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GenericAppName.Properties
+namespace GridGame.Properties
 {
 
 

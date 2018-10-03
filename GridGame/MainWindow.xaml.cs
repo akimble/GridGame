@@ -28,7 +28,12 @@ namespace GridGame
         // Event Handler built-in delegate is referencing this method. This method has subscribed to the ButtonClicked(?) event
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("testing");
+            Console.WriteLine("Button clicked.");
+        }
+
+        private void customControl_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("GridTile clicked.");
         }
     }
 }

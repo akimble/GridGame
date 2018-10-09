@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GridGame"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-   
+
     <Grid Margin="50,50,50,50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

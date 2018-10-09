@@ -6,4 +6,12 @@
              xmlns:local="clr-namespace:GridGame"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="Red" BorderBrush="Green">
+
+    <Style TargetType="local:GridTile">
+        <Setter Property="Template" >
+            <Setter.Value>
+                //TBD, need to get code I've already written for this
+            </Setter.Value>
+        </Setter>
+    </Style>
 </Button>

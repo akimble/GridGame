@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,17 +24,35 @@ namespace GridGame
         public MainWindow()
         {
             InitializeComponent();
+
+            RestartGridTileAnimations();
         }
 
-        // Event Handler built-in delegate is referencing this method. This method has subscribed to the ButtonClicked(?) event
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Apply the slow animation to all gridTiles
+        /// </summary>
+        private void RestartGridTileAnimations()
         {
-            Console.WriteLine("Button clicked.");
+            foreach (GridTile gridTile in mainGrid.Children)
+            {
+                Image myImage;
+                AnimationTimeline slowAnimation;
+
+                myImage = gridTile.Content as Image;
+                slowAnimation = Application.Current.Properties["slowAnimation"] as AnimationTimeline;
+
+                myImage.BeginAnimation(Image.SourceProperty, slowAnimation);
+            }
         }
 
-        private void customControl_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Restart all animations as slow animations
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GridTile_MouseLeave(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("GridTile clicked.");
+            RestartGridTileAnimations();
         }
     }
 }

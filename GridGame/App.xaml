@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:GridGame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ObjectAnimationUsingKeyFrames RepeatBehavior="Forever" x:Key="slowAnimation" Storyboard.TargetProperty="Source" Duration="0:0:1">
+            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>
+                    <BitmapImage UriSource="/GridGame;component/Images/prototypeActor1.png"></BitmapImage>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+            <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                <DiscreteObjectKeyFrame.Value>
+                    <BitmapImage UriSource="/GridGame;component/Images/prototypeActor2.png"></BitmapImage>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+        </ObjectAnimationUsingKeyFrames>
+        <ObjectAnimationUsingKeyFrames RepeatBehavior="Forever" x:Key="fastAnimation" Storyboard.TargetProperty="Source" Duration="0:0:0.5">
+            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>
+                    <BitmapImage UriSource="/GridGame;component/Images/prototypeActor1.png"></BitmapImage>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+            <DiscreteObjectKeyFrame KeyTime="0:0:0.25">
+                <DiscreteObjectKeyFrame.Value>
+                    <BitmapImage UriSource="/GridGame;component/Images/prototypeActor2.png"></BitmapImage>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+        </ObjectAnimationUsingKeyFrames>
     </Application.Resources>
 </Application>

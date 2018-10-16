@@ -26,6 +26,11 @@ namespace GridGame
             InitializeComponent();
 
             RestartGridTileAnimations();
+
+            Alpha alpha = new Alpha();
+            Beta beta = new Beta();
+            alpha.SubtractHealth(1);
+            beta.SubtractHealth(2);
         }
 
         /// <summary>

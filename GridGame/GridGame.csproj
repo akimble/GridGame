@@ -132,8 +132,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\prototypeActor1.png" />
-    <Resource Include="Images\prototypeActor2.png" />
+    <Resource Include="Images\Alpha1.png" />
+    <Resource Include="Images\Alpha2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Beta1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Beta2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

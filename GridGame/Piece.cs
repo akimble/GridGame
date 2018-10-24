@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GridGame
 {
-    abstract class Piece
+    public abstract class Piece
     {
         protected uint moveRange;
         protected int hp;

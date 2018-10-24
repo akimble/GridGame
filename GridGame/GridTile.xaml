@@ -7,5 +7,4 @@
              d:DesignHeight="450" d:DesignWidth="800" 
         Height="50" Width="50" BorderThickness="2" BorderBrush="Red" 
         Click="Button_Click" MouseEnter="Button_MouseEnter">
-    <Image></Image>
 </Button>

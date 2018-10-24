@@ -21,9 +21,41 @@ namespace GridGame
     /// </summary>
     public partial class GridTile : Button
     {
+        public GamePiece OccupyingPiece { get; set; }
+
+        public enum GamePiece
+        {
+            ALPHA, BETA, NONE
+        }
+
         public GridTile()
         {
             InitializeComponent();
+
+            OccupyingPiece = GamePiece.NONE;
+        }
+
+        public GridTile(GamePiece piece)
+        {
+            Image myImage;
+            
+            myImage = new Image();
+
+            // Assign the proper game piece image to myImage
+            if (piece == GamePiece.ALPHA)
+            {
+                myImage.Source = new BitmapImage(new Uri("Images/Alpha1.png", UriKind.Relative));
+            }
+            else if (piece == GamePiece.BETA)
+            {
+                myImage.Source = new BitmapImage(new Uri("Images/Beta1.png", UriKind.Relative));
+            }
+
+            // Set myImage as this GridTile's content
+            Content = myImage;
+
+            // Set this GridTile's OccupyingPiece property
+            OccupyingPiece = piece;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,13 +70,13 @@ namespace GridGame
         /// <param name="e"></param>
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
-            Image myImage;
-            AnimationTimeline fastAnimation;
+            //Image myImage;
+            //AnimationTimeline fastAnimation;
 
-            myImage = (sender as Button).Content as Image;
-            fastAnimation = Application.Current.Properties["fastAnimation"] as AnimationTimeline;
+            //myImage = (sender as Button).Content as Image;
+            //fastAnimation = Application.Current.Properties["fastAnimation"] as AnimationTimeline;
 
-            myImage.BeginAnimation(Image.SourceProperty, fastAnimation);
+            //myImage.BeginAnimation(Image.SourceProperty, fastAnimation);
         }
     }
 }

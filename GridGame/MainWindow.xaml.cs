@@ -21,11 +21,37 @@ namespace GridGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        GridTile[] board = new GridTile[18];
+
         public MainWindow()
         {
             InitializeComponent();
 
-            RestartGridTileAnimations();
+            // Create the board - TESTING
+            for (int i = 0; i < board.Length; i++)
+            {
+                if (i == 0)
+                {
+                    board[i] = new GridTile(GridTile.GamePiece.ALPHA);
+                    Grid.SetRow(board[i], 0);
+                    Grid.SetColumn(board[i], 2);
+                }
+                else if (i == 8)
+                {
+                    board[i] = new GridTile(GridTile.GamePiece.BETA);
+                    Grid.SetRow(board[i], 2);
+                    Grid.SetColumn(board[i], 2);
+                }
+                else
+                {
+                    board[i] = new GridTile(GridTile.GamePiece.NONE);
+                    Grid.SetRow(board[i], i);
+                    Grid.SetColumn(board[i], i);
+                }
+                mainGrid.Children.Add(board[i]);
+            }
+
+            //RestartGridTileAnimations();
 
             Alpha alpha = new Alpha();
             Beta beta = new Beta();
@@ -57,7 +83,7 @@ namespace GridGame
         /// <param name="e"></param>
         private void GridTile_MouseLeave(object sender, MouseEventArgs e)
         {
-            RestartGridTileAnimations();
+            //RestartGridTileAnimations();
         }
     }
 }

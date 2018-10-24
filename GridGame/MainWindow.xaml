@@ -30,7 +30,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <local:GridTile Grid.Column="2" Grid.Row="0">
+        <!--<local:GridTile Grid.Column="2" Grid.Row="0">
             <Image></Image>
         </local:GridTile>
         <local:GridTile Grid.Column="3" Grid.Row="0">
@@ -87,6 +87,6 @@
         </local:GridTile>
         <local:GridTile Grid.Column="3" Grid.Row="4">
             <Image></Image>
-        </local:GridTile>
+        </local:GridTile>-->
     </Grid>
 </Window>

@@ -21,46 +21,62 @@ namespace GridGame
     /// </summary>
     public partial class GridTile : Button
     {
-        public GamePiece OccupyingPiece { get; set; }
-
-        public enum GamePiece
-        {
-            ALPHA, BETA, NONE
-        }
+        public Piece OccupyingPiece { get; set; }
 
         public GridTile()
         {
-            InitializeComponent();
-
-            OccupyingPiece = GamePiece.NONE;
+            //InitializeComponent;
         }
 
-        public GridTile(GamePiece piece)
+        public GridTile(Piece gamePiece)
         {
-            Image myImage;
-            
-            myImage = new Image();
+            //InitializeComponent;
 
-            // Assign the proper game piece image to myImage
-            if (piece == GamePiece.ALPHA)
-            {
-                myImage.Source = new BitmapImage(new Uri("Images/Alpha1.png", UriKind.Relative));
-            }
-            else if (piece == GamePiece.BETA)
-            {
-                myImage.Source = new BitmapImage(new Uri("Images/Beta1.png", UriKind.Relative));
-            }
+            OccupyingPiece = gamePiece;
 
-            // Set myImage as this GridTile's content
-            Content = myImage;
-
-            // Set this GridTile's OccupyingPiece property
-            OccupyingPiece = piece;
+            Content = gamePiece.PieceImage;
         }
+
+        //public GamePiece OccupyingPiece { get; set; }
+
+        //public enum GamePiece
+        //{
+        //    ALPHA, BETA, NONE
+        //}
+
+        //public GridTile()
+        //{
+        //    InitializeComponent();
+
+        //    OccupyingPiece = GamePiece.NONE;
+        //}
+
+        //public GridTile(GamePiece piece)
+        //{
+        //    Image myImage;
+            
+        //    myImage = new Image();
+
+        //    // Assign the proper game piece image to myImage
+        //    if (piece == GamePiece.ALPHA)
+        //    {
+        //        myImage.Source = new BitmapImage(new Uri("Images/Alpha1.png", UriKind.Relative));
+        //    }
+        //    else if (piece == GamePiece.BETA)
+        //    {
+        //        myImage.Source = new BitmapImage(new Uri("Images/Beta1.png", UriKind.Relative));
+        //    }
+
+        //    // Set myImage as this GridTile's content
+        //    Content = myImage;
+
+        //    // Set this GridTile's OccupyingPiece property
+        //    OccupyingPiece = piece;
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("GridTile clicked.");
+            //Console.WriteLine("GridTile clicked.");
         }
 
         /// <summary>

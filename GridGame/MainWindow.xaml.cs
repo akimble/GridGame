@@ -9,9 +9,9 @@ namespace GridGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const int _NUMTILES = 9;
         private const int _NUMROWS = 3;
         private const int _NUMCOLS = 3;
+        private const int _NUMTILES = _NUMROWS * _NUMCOLS;
 
         private GridTile[] _board;
         private int _firstSelectedTileIndex;
@@ -26,7 +26,7 @@ namespace GridGame
             _firstSelectedTileIndex = -1;
 
             // Initialize the grid tiles
-            for (int i = 0; i < _board.Length; i++)
+            for (int i = 0; i < _NUMTILES; i++)
             {
                 int index;
 
@@ -138,7 +138,7 @@ namespace GridGame
             minColIndex = index - (index % _NUMCOLS);
             maxColIndex = index + (_NUMCOLS - (index % _NUMCOLS)) - 1;
             minRowIndex = index % _NUMROWS;
-            maxRowIndex = _board.Length - (_NUMROWS - minRowIndex);
+            maxRowIndex = _NUMTILES - (_NUMROWS - minRowIndex);
 
             // LEFT ---------------------------------------------------
             tempMoveNum = 1;

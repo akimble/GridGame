@@ -85,8 +85,8 @@ namespace GridGame
                 // If the first tile is not reselected, proceed
                 if (_firstSelectedTileIndex != i)
                 {
-                    // If the second tile is not occupied, move the first tile's piece to the second tile
-                    if (gridTile.OccupyingPiece == null)
+                    // If the second tile is not occupied and it's highlighted, move the first tile's piece to the second tile
+                    if (gridTile.OccupyingPiece == null && highlightedTiles.Contains(gridTile))
                     {
                         // "Move" the first selected tile's piece to the second selected tile
                         gridTile.OccupyingPiece = _firstSelectedTile.OccupyingPiece;
@@ -143,7 +143,7 @@ namespace GridGame
             // LEFT ---------------------------------------------------
             tempMoveNum = 1;
             potentialTileIndex = index - tempMoveNum;
-            leftAvailable = potentialTileIndex >= minColIndex;
+            leftAvailable = potentialTileIndex >= minColIndex && _board[potentialTileIndex].OccupyingPiece == null;
 
             while (leftAvailable && tempMoveNum <= gridTile.OccupyingPiece.MoveRange)
             {
@@ -152,13 +152,13 @@ namespace GridGame
                 tempMoveNum++;
                 potentialTileIndex = index - tempMoveNum;
 
-                leftAvailable = potentialTileIndex >= minColIndex;
+                leftAvailable = potentialTileIndex >= minColIndex && _board[potentialTileIndex].OccupyingPiece == null;
             }
 
             // RIGHT --------------------------------------------------
             tempMoveNum = 1;
             potentialTileIndex = index + tempMoveNum;
-            rightAvailable = potentialTileIndex <= maxColIndex;
+            rightAvailable = potentialTileIndex <= maxColIndex && _board[potentialTileIndex].OccupyingPiece == null;
 
             while (rightAvailable && tempMoveNum <= gridTile.OccupyingPiece.MoveRange)
             {
@@ -167,13 +167,13 @@ namespace GridGame
                 tempMoveNum++;
                 potentialTileIndex = index + tempMoveNum;
 
-                rightAvailable = potentialTileIndex <= maxColIndex;
+                rightAvailable = potentialTileIndex <= maxColIndex && _board[potentialTileIndex].OccupyingPiece == null;
             }
 
             // UP -----------------------------------------------------
             tempMoveNum = 1;
             potentialTileIndex = index - _NUMCOLS;
-            upAvailable = potentialTileIndex >= minRowIndex;
+            upAvailable = potentialTileIndex >= minRowIndex && _board[potentialTileIndex].OccupyingPiece == null;
 
             while (upAvailable && tempMoveNum <= gridTile.OccupyingPiece.MoveRange)
             {
@@ -182,13 +182,13 @@ namespace GridGame
                 tempMoveNum++;
                 potentialTileIndex = index - tempMoveNum * _NUMCOLS;
 
-                upAvailable = potentialTileIndex >= minRowIndex;
+                upAvailable = potentialTileIndex >= minRowIndex && _board[potentialTileIndex].OccupyingPiece == null;
             }
 
             // DOWN ---------------------------------------------------
             tempMoveNum = 1;
             potentialTileIndex = index + _NUMCOLS;
-            downAvailable = potentialTileIndex <= maxRowIndex;
+            downAvailable = potentialTileIndex <= maxRowIndex && _board[potentialTileIndex].OccupyingPiece == null;
 
             while (downAvailable && tempMoveNum <= gridTile.OccupyingPiece.MoveRange)
             {
@@ -197,7 +197,7 @@ namespace GridGame
                 tempMoveNum++;
                 potentialTileIndex = index + tempMoveNum * _NUMCOLS;
 
-                downAvailable = potentialTileIndex <= maxRowIndex;
+                downAvailable = potentialTileIndex <= maxRowIndex && _board[potentialTileIndex].OccupyingPiece == null;
             }
 
             // --------------------------------------------------------
